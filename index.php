@@ -8,8 +8,6 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -83,26 +81,50 @@
                         </li>
                         <li class="nav-header">CHART MENU</li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
+                            <a href="customer.php" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
-                                    Calendar
+                                    CUSTOMER
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="employee.php" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
-                                    Gallery
+                                    EMPLOYEE
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/kanban.html" class="nav-link">
+                            <a href="product.php" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
-                                    Kanban Board
+                                    PRODUCT
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sales.php" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    SALES
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="shipping.php" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    SHIPPING
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vendor.php" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    VENDOR
                                 </p>
                             </a>
                         </li>
@@ -156,7 +178,7 @@
                                     <p>Total Pemasukan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-dollar-sign"></i>
+                                    <i class="fa-solid fa-user"></i>
                                 </div>
                             </div>
                         </div>
