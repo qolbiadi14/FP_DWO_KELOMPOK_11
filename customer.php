@@ -90,7 +90,7 @@
                                         ?>
                                     </h3>
 
-                                    <p>Total Pemasukan</p>
+                                    <p>Total Customer</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fa-solid fa-user"></i>
