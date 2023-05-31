@@ -6,7 +6,7 @@
     switch ($link) {
         case '/FP_DWO_KELOMPOK_11/index.php':
             echo '<li class="nav-item">';
-            echo '<a href="#" class="nav-link active">';
+            echo '<a href="index.php" class="nav-link active">';
             echo '<i class="nav-icon fas fa-tachometer-alt"></i>';
             echo '<p>Dashboard</p>';
             echo '</a>';
@@ -51,7 +51,7 @@
             break;
         case '/FP_DWO_KELOMPOK_11/customer.php':
             echo '<li class="nav-item">';
-            echo '<a href="#" class="nav-link">';
+            echo '<a href="index.php" class="nav-link">';
             echo '<i class="nav-icon fas fa-tachometer-alt"></i>';
             echo '<p>Dashboard</p>';
             echo '</a>';
@@ -96,7 +96,7 @@
             break;
         case '/FP_DWO_KELOMPOK_11/employee.php':
             echo '<li class="nav-item">';
-            echo '<a href="#" class="nav-link">';
+            echo '<a href="index.php" class="nav-link">';
             echo '<i class="nav-icon fas fa-tachometer-alt"></i>';
             echo '<p>Dashboard</p>';
             echo '</a>';
@@ -141,7 +141,7 @@
             break;
         case '/FP_DWO_KELOMPOK_11/product.php':
             echo '<li class="nav-item">';
-            echo '<a href="#" class="nav-link">';
+            echo '<a href="index.php" class="nav-link">';
             echo '<i class="nav-icon fas fa-tachometer-alt"></i>';
             echo '<p>Dashboard</p>';
             echo '</a>';
@@ -186,7 +186,7 @@
             break;
         case '/FP_DWO_KELOMPOK_11/sales.php':
             echo '<li class="nav-item">';
-            echo '<a href="#" class="nav-link">';
+            echo '<a href="index.php" class="nav-link">';
             echo '<i class="nav-icon fas fa-tachometer-alt"></i>';
             echo '<p>Dashboard</p>';
             echo '</a>';
@@ -231,7 +231,7 @@
             break;
         case '/FP_DWO_KELOMPOK_11/shipping.php':
             echo '<li class="nav-item">';
-            echo '<a href="#" class="nav-link">';
+            echo '<a href="index.php" class="nav-link">';
             echo '<i class="nav-icon fas fa-tachometer-alt"></i>';
             echo '<p>Dashboard</p>';
             echo '</a>';
@@ -276,7 +276,7 @@
             break;
         case '/FP_DWO_KELOMPOK_11/vendor.php':
             echo '<li class="nav-item">';
-            echo '<a href="#" class="nav-link">';
+            echo '<a href="index.php" class="nav-link">';
             echo '<i class="nav-icon fas fa-tachometer-alt"></i>';
             echo '<p>Dashboard</p>';
             echo '</a>';
@@ -321,7 +321,7 @@
             break;
         default:
             echo '<li class="nav-item">';
-            echo '<a href="#" class="nav-link">';
+            echo '<a href="index.php" class="nav-link">';
             echo '<i class="nav-icon fas fa-tachometer-alt"></i>';
             echo '<p>Dashboard</p>';
             echo '</a>';
