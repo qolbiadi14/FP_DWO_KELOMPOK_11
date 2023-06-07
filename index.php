@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
 
-    <?php include "header.php"?>
+    <?php include "header.php" ?>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -88,10 +88,10 @@
                                     <h3>
                                         <?php
                                         include "config.php";
-                                        $sql = "SELECT SUM(line_total) as total from fact_sales";
+                                        $sql = "SELECT SUM(line_total) as lt from fact_sales";
                                         $query = mysqli_query($connect, $sql);
                                         while ($row2 = mysqli_fetch_array($query)) {
-                                            echo "$" . number_format($row2['total']);
+                                            echo "$" . number_format($row2['lt']);
                                         }
                                         ?>
                                     </h3>
@@ -111,10 +111,10 @@
                                     <h3>
                                         <?php
                                         include "config.php";
-                                        $sql = "SELECT SUM(line_total) as total from fact_purchasing";
+                                        $sql = "SELECT SUM(line_total) as lt from fact_purchasing";
                                         $query = mysqli_query($connect, $sql);
                                         while ($row2 = mysqli_fetch_array($query)) {
-                                            echo "$" . number_format($row2['total']);
+                                            echo "$" . number_format($row2['lt']);
                                         }
                                         ?>
                                     </h3>
@@ -129,15 +129,84 @@
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3>
+                                        <?php
+                                        include "config.php";
+                                        $sql = "SELECT COUNT(*) as jml_pnj FROM `fact_sales`";
+                                        $query = mysqli_query($connect, $sql);
+                                        while ($row2 = mysqli_fetch_array($query)) {
+                                            echo number_format($row2['jml_pnj']);
+                                        }
+                                        ?>
+                                    </h3>
+
+                                    <p>Total Transaksi Penjualan</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-danger">
+                                <div class="inner">
+                                    <h3>
+                                        <?php
+                                        include "config.php";
+                                        $sql = "SELECT COUNT(*) as jml_pmb from fact_purchasing";
+                                        $query = mysqli_query($connect, $sql);
+                                        while ($row2 = mysqli_fetch_array($query)) {
+                                            echo number_format($row2['jml_pmb']);
+                                        }
+                                        ?>
+                                    </h3>
+
+                                    <p>Total Transaksi Pembelian</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-stats-bars"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>
+                                        <?php
+                                        include "config.php";
+                                        $sql = "SELECT COUNT(product_id) as pid FROM `product`";
+                                        $query = mysqli_query($connect, $sql);
+                                        while ($row2 = mysqli_fetch_array($query)) {
+                                            echo number_format($row2['pid']);
+                                        }
+                                        ?>
+                                    </h3>
+
+                                    <p>Unique Product</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-person-add"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
                                     <h3>
                                         <?php
                                         include "config.php";
-                                        $sql = "SELECT COUNT(DISTINCT(customer_id)) as total FROM `fact_sales`;";
+                                        $sql = "SELECT COUNT(customer_id) as cid FROM `customer`";
                                         $query = mysqli_query($connect, $sql);
                                         while ($row2 = mysqli_fetch_array($query)) {
-                                            echo number_format($row2['total']);
+                                            echo number_format($row2['cid']);
                                         }
                                         ?>
                                     </h3>
@@ -157,10 +226,10 @@
                                     <h3>
                                         <?php
                                         include "config.php";
-                                        $sql = "SELECT COUNT(DISTINCT(vendor_id)) as total FROM `fact_purchasing`;";
+                                        $sql = "SELECT COUNT(vendor_id) as vid FROM `vendor`";
                                         $query = mysqli_query($connect, $sql);
                                         while ($row2 = mysqli_fetch_array($query)) {
-                                            echo number_format($row2['total']);
+                                            echo number_format($row2['vid']);
                                         }
                                         ?>
                                     </h3>
@@ -173,11 +242,79 @@
                             </div>
                         </div>
                         <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>
+                                        <?php
+                                        include "config.php";
+                                        $sql = "SELECT COUNT(employee_id) as empid FROM `employee`";
+                                        $query = mysqli_query($connect, $sql);
+                                        while ($row2 = mysqli_fetch_array($query)) {
+                                            echo number_format($row2['empid']);
+                                        }
+                                        ?>
+                                    </h3>
+
+                                    <p>Total Employee</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-person-add"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>
+                                        <?php
+                                        include "config.php";
+                                        $sql = "SELECT COUNT(sales_territory_id) as stid FROM `sales_territory`";
+                                        $query = mysqli_query($connect, $sql);
+                                        while ($row2 = mysqli_fetch_array($query)) {
+                                            echo number_format($row2['stid']);
+                                        }
+                                        ?>
+                                    </h3>
+
+                                    <p>Total Sales Territory</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-person-add"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>
+                                        <?php
+                                        include "config.php";
+                                        $sql = "SELECT COUNT(sales_person_id) as stid FROM `sales_person`";
+                                        $query = mysqli_query($connect, $sql);
+                                        while ($row2 = mysqli_fetch_array($query)) {
+                                            echo number_format($row2['stid']);
+                                        }
+                                        ?>
+                                    </h3>
+
+                                    <p>Total Sales Person</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-person-add"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./col -->
                     </div>
                     <!-- /.row -->
                     <!-- Main row -->
                     <div class="row">
-                        <iframe name="mondrian" src="http://localhost:8081/mondrian/testpage.jsp?query=whsales" style="height: 500px;; width:100%; border:none; align-content:center"> </iframe>
+                        <iframe name="mondrian" src="http://localhost:8081/mondrian/testpage.jsp?query=whsales" style="height: 500px; width:100%; border:none; align-content:center"> </iframe>
                     </div>
                     <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
@@ -201,7 +338,7 @@
     </div>
     <!-- ./wrapper -->
 
-    <?php include "pluginScript.php"?>
+    <?php include "pluginScript.php" ?>
 </body>
 
 </html>

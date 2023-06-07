@@ -75,25 +75,26 @@
                 <div class="container-fluid">
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
+                        <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-success">
+                            <div class="small-box bg-info">
                                 <div class="inner">
                                     <h3>
                                         <?php
                                         include "config.php";
-                                        $sql = "SELECT SUM(line_total) as total from fact_sales";
+                                        $sql = "SELECT COUNT(employee_id) as empid FROM `employee`";
                                         $query = mysqli_query($connect, $sql);
                                         while ($row2 = mysqli_fetch_array($query)) {
-                                            echo "$" . number_format($row2['total']);
+                                            echo number_format($row2['empid']);
                                         }
                                         ?>
                                     </h3>
 
-                                    <p>Total Pemasukan</p>
+                                    <p>Total Employee</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="ion ion-person-add"></i>
                                 </div>
                             </div>
                         </div>
@@ -105,75 +106,67 @@
                                     <h3>
                                         <?php
                                         include "config.php";
-                                        $sql = "SELECT SUM(line_total) as total from fact_purchasing";
+                                        $sql = "SELECT SUM(line_total) as lt from fact_purchasing";
                                         $query = mysqli_query($connect, $sql);
                                         while ($row2 = mysqli_fetch_array($query)) {
-                                            echo "$" . number_format($row2['total']);
+                                            echo "$" . number_format($row2['lt']);
                                         }
                                         ?>
                                     </h3>
 
-                                    <p>Total Pengeluaran</p>
+                                    <p>Total Purchasing</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
                             </div>
                         </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>
-                                        <?php
-                                        include "config.php";
-                                        $sql = "SELECT COUNT(DISTINCT(customer_id)) as total FROM `fact_sales`;";
-                                        $query = mysqli_query($connect, $sql);
-                                        while ($row2 = mysqli_fetch_array($query)) {
-                                            echo number_format($row2['total']);
-                                        }
-                                        ?>
-                                    </h3>
-
-                                    <p>Unique Customer</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>
-                                        <?php
-                                        include "config.php";
-                                        $sql = "SELECT COUNT(DISTINCT(vendor_id)) as total FROM `fact_purchasing`;";
-                                        $query = mysqli_query($connect, $sql);
-                                        while ($row2 = mysqli_fetch_array($query)) {
-                                            echo number_format($row2['total']);
-                                        }
-                                        ?>
-                                    </h3>
-
-                                    <p>Unique Vendor</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                    </div>
-                    <!-- /.row -->
-                    <!-- Main row -->
-                    <div class="row">
-                        <iframe name="mondrian" src="http://localhost:8081/mondrian/testpage.jsp?query=whsales" style="height: 500px;; width:100%; border:none; align-content:center"> </iframe>
                     </div>
                     <!-- /.row (main row) -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- DONUT CHART -->
+                            <div class="card card-danger">
+                                <div class="card-header">
+                                    <h3 class="card-title">5 karyawan dengan total purchasing terbanyak</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- DONUT CHART -->
+                            <div class="card card-danger">
+                                <div class="card-header">
+                                    <h3 class="card-title">5 karyawan dengan total pengeluaran terbanyak</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="pieChart1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                        <!-- /.col (RIGHT) -->
+                    </div>
+                    <!-- /.row -->
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->
@@ -194,8 +187,137 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
     <?php include "pluginScript.php" ?>
+    <script>
+        $(function() {
+            <?php
+            include "config.php";
+            $employee = "SELECT e.employee_name FROM `fact_purchasing` fp JOIN employee e ON fp.employee_id = e.employee_id WHERE fp.employee_id IS NOT NULL GROUP BY e.employee_name ORDER BY COUNT(e.employee_name) DESC LIMIT 5";
+            $orderqty = "SELECT COUNT(e.employee_name) AS total_purchase FROM `fact_purchasing` fp JOIN employee e ON fp.employee_id = e.employee_id WHERE fp.employee_id IS NOT NULL GROUP BY e.employee_name ORDER BY total_purchase DESC LIMIT 5";
+            $i = 1;
+            $query_employee = mysqli_query($connect, $employee);
+            $jumlah_employee = mysqli_num_rows($query_employee);
+            $chart_employee = "";
+            while ($row = mysqli_fetch_array($query_employee)) {
+                if ($i < $jumlah_employee) {
+                    $chart_employee .= '"';
+                    $chart_employee .= $row['employee_name'];
+                    $chart_employee .= '",';
+                    $i++;
+                } else {
+                    $chart_employee .= '"';
+                    $chart_employee .= $row['employee_name'];
+                    $chart_employee .= '"';
+                }
+            }
+            $a = 1;
+            $query_orderqty = mysqli_query($connect, $orderqty);
+            $jumlah_orderqty = mysqli_num_rows($query_orderqty);
+            $chart_orderqty = "";
+            while ($row1 = mysqli_fetch_array($query_orderqty)) {
+                if ($a < $jumlah_orderqty) {
+                    $chart_orderqty .= $row1['total_purchase'];
+                    $chart_orderqty .= ',';
+                    $a++;
+                } else {
+                    $chart_orderqty .= $row1['total_purchase'];
+                }
+            }
+
+
+            ?>
+            //-------------
+            //- PIE CHART -
+            //-------------
+            // Get context with jQuery - using jQuery's .get() method.
+            var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+            var pieData = {
+                labels: [
+                    <?php echo $chart_employee ?>
+                ],
+                datasets: [{
+                    data: [<?php echo $chart_orderqty ?>],
+                    backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                }]
+            };
+            var pieOptions = {
+                maintainAspectRatio: false,
+                responsive: true,
+            }
+            //Create pie or douhnut chart
+            // You can switch between pie and douhnut using the method below.
+            new Chart(pieChartCanvas, {
+                type: 'pie',
+                data: pieData,
+                options: pieOptions
+            })
+        })
+    </script>
+    <script>
+        $(function() {
+            <?php
+            include "config.php";
+            $employee = "SELECT e.employee_name FROM `fact_purchasing` fp JOIN employee e ON fp.employee_id = e.employee_id WHERE fp.employee_id IS NOT NULL GROUP BY e.employee_name ORDER BY SUM(fp.line_total) DESC LIMIT 5";
+            $orderqty = "SELECT SUM(fp.line_total) AS total_purchase FROM `fact_purchasing` fp JOIN employee e ON fp.employee_id = e.employee_id WHERE fp.employee_id IS NOT NULL GROUP BY e.employee_name ORDER BY total_purchase DESC LIMIT 5";
+            $i = 1;
+            $query_employee = mysqli_query($connect, $employee);
+            $jumlah_employee = mysqli_num_rows($query_employee);
+            $chart_employee = "";
+            while ($row = mysqli_fetch_array($query_employee)) {
+                if ($i < $jumlah_employee) {
+                    $chart_employee .= '"';
+                    $chart_employee .= $row['employee_name'];
+                    $chart_employee .= '",';
+                    $i++;
+                } else {
+                    $chart_employee .= '"';
+                    $chart_employee .= $row['employee_name'];
+                    $chart_employee .= '"';
+                }
+            }
+            $a = 1;
+            $query_orderqty = mysqli_query($connect, $orderqty);
+            $jumlah_orderqty = mysqli_num_rows($query_orderqty);
+            $chart_orderqty = "";
+            while ($row1 = mysqli_fetch_array($query_orderqty)) {
+                if ($a < $jumlah_orderqty) {
+                    $chart_orderqty .= $row1['total_purchase'];
+                    $chart_orderqty .= ',';
+                    $a++;
+                } else {
+                    $chart_orderqty .= $row1['total_purchase'];
+                }
+            }
+
+
+            ?>
+            //-------------
+            //- PIE CHART -
+            //-------------
+            // Get context with jQuery - using jQuery's .get() method.
+            var pieChartCanvas = $('#pieChart1').get(0).getContext('2d')
+            var pieData = {
+                labels: [
+                    <?php echo $chart_employee ?>
+                ],
+                datasets: [{
+                    data: [<?php echo $chart_orderqty ?>],
+                    backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                }]
+            };
+            var pieOptions = {
+                maintainAspectRatio: false,
+                responsive: true,
+            }
+            //Create pie or douhnut chart
+            // You can switch between pie and douhnut using the method below.
+            new Chart(pieChartCanvas, {
+                type: 'pie',
+                data: pieData,
+                options: pieOptions
+            })
+        })
+    </script>
 </body>
 
 </html>

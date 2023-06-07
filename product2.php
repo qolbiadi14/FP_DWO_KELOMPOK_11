@@ -305,8 +305,27 @@
                 $product_sub_category = $drilldown_row["product_sub_category"];
                 $order_qty = $drilldown_row["total_order"];
 
+                $product_drilldown = array();
+                $product_query = "SELECT p.product_name, SUM(fs.order_QTY) AS total_order
+                                FROM fact_sales fs
+                                JOIN product p ON fs.product_id = p.product_id
+                                WHERE p.product_sub_category = '" . $product_sub_category . "'
+                                GROUP BY p.product_name 
+                                ORDER BY total_order DESC";
+                $query_product = mysqli_query($connect, $product_query);
+                while ($product_row = mysqli_fetch_array($query_product)) {
+                    $product_name = $product_row["product_name"];
+                    $product_order_qty = $product_row["total_order"];
+
+                    // Menambahkan data drilldown tingkat 3 (nama produk)
+                    $product_drilldown[] = array($product_name, ($order_qty / $product_order_qty) * 10);
+                }
                 // Menambahkan data drilldown
-                $data_drilldown[] = array($product_sub_category, ($row["total_order"] / $order_qty) * 10);
+                $data_drilldown[] = array(
+                    "name" => $product_sub_category,
+                    "id" => $product_sub_category,
+                    "data" => $product_drilldown
+                );
             }
             $data_series[] = array(
                 "name" => $nm_kategori,
