@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>AdminLTE 3 | Product</title>
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
@@ -81,15 +81,6 @@
 
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
-                    </div>
-                </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -107,12 +98,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Product</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                <li class="breadcrumb-item active">Product</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -247,6 +238,105 @@
                         <!-- ./col -->
                     </div>
                     <!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- BAR CHART -->
+                            <div class="card card-success">
+                                <div class="card-header">
+                                    <h3 class="card-title">10 produk best seller 2001</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart">
+                                        <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- DONUT CHART -->
+                            <!-- BAR CHART -->
+                            <div class="card card-success">
+                                <div class="card-header">
+                                    <h3 class="card-title">10 produk best seller 2002</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart">
+                                        <canvas id="barChart1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- DONUT CHART -->
+                            <!-- BAR CHART -->
+                            <div class="card card-success">
+                                <div class="card-header">
+                                    <h3 class="card-title">10 produk best seller 2003</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart">
+                                        <canvas id="barChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- DONUT CHART -->
+                            <!-- BAR CHART -->
+                            <div class="card card-success">
+                                <div class="card-header">
+                                    <h3 class="card-title">10 produk best seller 2004</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart">
+                                        <canvas id="barChart3" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+
+                        </div>
+                        <!-- /.col (RIGHT) -->
+                    </div>
                     <!-- Main row -->
                     <figure class="highcharts-figure">
                         <div id="container"></div>
@@ -276,7 +366,7 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
+    <?php include "pluginScript.php" ?>
     <script type="text/javascript">
         <?php
         include "config.php";
@@ -367,7 +457,290 @@
             }
         });
     </script>
-    <?php include "pluginScript.php" ?>
+    <script>
+        $(function() {
+            <?php
+            include "config.php";
+            $customer = "SELECT p.product_name FROM `fact_sales` fs JOIN product p ON fs.product_id = p.product_id JOIN time t ON fs.time_id = t.time_id WHERE t.tahun=2001 GROUP BY p.product_id ORDER BY COUNT(p.product_name) DESC LIMIT 10;";
+            $orderqty = "SELECT COUNT(p.product_name) as fscoq FROM `fact_sales` fs JOIN product p ON fs.product_id = p.product_id JOIN time t ON fs.time_id = t.time_id WHERE t.tahun=2001 GROUP BY p.product_name ORDER BY fscoq DESC LIMIT 10;";
+            $i = 1;
+            $query_customer = mysqli_query($connect, $customer);
+            $jumlah_customer = mysqli_num_rows($query_customer);
+            $chart_customer = "";
+            while ($row = mysqli_fetch_array($query_customer)) {
+                if ($i < $jumlah_customer) {
+                    $chart_customer .= '"';
+                    $chart_customer .= $row['product_name'];
+                    $chart_customer .= '",';
+                    $i++;
+                } else {
+                    $chart_customer .= '"';
+                    $chart_customer .= $row['product_name'];
+                    $chart_customer .= '"';
+                }
+            }
+            $a = 1;
+            $query_orderqty = mysqli_query($connect, $orderqty);
+            $jumlah_orderqty = mysqli_num_rows($query_orderqty);
+            $chart_orderqty = "";
+            while ($row1 = mysqli_fetch_array($query_orderqty)) {
+                if ($a < $jumlah_orderqty) {
+                    $chart_orderqty .= $row1['fscoq'];
+                    $chart_orderqty .= ',';
+                    $a++;
+                } else {
+                    $chart_orderqty .= $row1['fscoq'];
+                }
+            }
+
+
+            ?>
+            //-------------
+            //- BAR CHART -
+            //-------------
+            var barChartCanvas = $('#barChart').get(0).getContext('2d')
+            //var barChartData = $.extend(true, {}, areaChartData)
+            var barChartData = {
+                labels: [<?php echo $chart_customer ?>],
+                datasets: [{
+                    label: 'Product',
+                    backgroundColor: 'rgba(60,141,188,0.9)',
+                    borderColor: 'rgba(60,141,188,0.8)',
+                    pointRadius: false,
+                    pointColor: '#3b8bba',
+                    pointStrokeColor: 'rgba(60,141,188,1)',
+                    pointHighlightFill: '#fff',
+                    pointHighlightStroke: 'rgba(60,141,188,1)',
+                    data: [<?php echo $chart_orderqty ?>]
+                }]
+            }
+
+            var barChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                datasetFill: false
+            }
+
+            new Chart(barChartCanvas, {
+                type: 'bar',
+                data: barChartData,
+                options: barChartOptions
+            })
+        })
+    </script>
+    <script>
+        $(function() {
+            <?php
+            include "config.php";
+            $customer = "SELECT p.product_name FROM `fact_sales` fs JOIN product p ON fs.product_id = p.product_id JOIN time t ON fs.time_id = t.time_id WHERE t.tahun=2002 GROUP BY p.product_id ORDER BY COUNT(p.product_name) DESC LIMIT 10;";
+            $orderqty = "SELECT COUNT(p.product_name) as fscoq FROM `fact_sales` fs JOIN product p ON fs.product_id = p.product_id JOIN time t ON fs.time_id = t.time_id WHERE t.tahun=2002 GROUP BY p.product_name ORDER BY fscoq DESC LIMIT 10;";
+            $i = 1;
+            $query_customer = mysqli_query($connect, $customer);
+            $jumlah_customer = mysqli_num_rows($query_customer);
+            $chart_customer = "";
+            while ($row = mysqli_fetch_array($query_customer)) {
+                if ($i < $jumlah_customer) {
+                    $chart_customer .= '"';
+                    $chart_customer .= $row['product_name'];
+                    $chart_customer .= '",';
+                    $i++;
+                } else {
+                    $chart_customer .= '"';
+                    $chart_customer .= $row['product_name'];
+                    $chart_customer .= '"';
+                }
+            }
+            $a = 1;
+            $query_orderqty = mysqli_query($connect, $orderqty);
+            $jumlah_orderqty = mysqli_num_rows($query_orderqty);
+            $chart_orderqty = "";
+            while ($row1 = mysqli_fetch_array($query_orderqty)) {
+                if ($a < $jumlah_orderqty) {
+                    $chart_orderqty .= $row1['fscoq'];
+                    $chart_orderqty .= ',';
+                    $a++;
+                } else {
+                    $chart_orderqty .= $row1['fscoq'];
+                }
+            }
+
+
+            ?>
+            //-------------
+            //- BAR CHART -
+            //-------------
+            var barChartCanvas = $('#barChart1').get(0).getContext('2d')
+            //var barChartData = $.extend(true, {}, areaChartData)
+            var barChartData = {
+                labels: [<?php echo $chart_customer ?>],
+                datasets: [{
+                    label: 'Product',
+                    backgroundColor: 'rgba(60,141,188,0.9)',
+                    borderColor: 'rgba(60,141,188,0.8)',
+                    pointRadius: false,
+                    pointColor: '#3b8bba',
+                    pointStrokeColor: 'rgba(60,141,188,1)',
+                    pointHighlightFill: '#fff',
+                    pointHighlightStroke: 'rgba(60,141,188,1)',
+                    data: [<?php echo $chart_orderqty ?>]
+                }]
+            }
+
+            var barChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                datasetFill: false
+            }
+
+            new Chart(barChartCanvas, {
+                type: 'bar',
+                data: barChartData,
+                options: barChartOptions
+            })
+        })
+    </script>
+    <script>
+        $(function() {
+            <?php
+            include "config.php";
+            $customer = "SELECT p.product_name FROM `fact_sales` fs JOIN product p ON fs.product_id = p.product_id JOIN time t ON fs.time_id = t.time_id WHERE t.tahun=2003 GROUP BY p.product_id ORDER BY COUNT(p.product_name) DESC LIMIT 10;";
+            $orderqty = "SELECT COUNT(p.product_name) as fscoq FROM `fact_sales` fs JOIN product p ON fs.product_id = p.product_id JOIN time t ON fs.time_id = t.time_id WHERE t.tahun=2003 GROUP BY p.product_name ORDER BY fscoq DESC LIMIT 10;";
+            $i = 1;
+            $query_customer = mysqli_query($connect, $customer);
+            $jumlah_customer = mysqli_num_rows($query_customer);
+            $chart_customer = "";
+            while ($row = mysqli_fetch_array($query_customer)) {
+                if ($i < $jumlah_customer) {
+                    $chart_customer .= '"';
+                    $chart_customer .= $row['product_name'];
+                    $chart_customer .= '",';
+                    $i++;
+                } else {
+                    $chart_customer .= '"';
+                    $chart_customer .= $row['product_name'];
+                    $chart_customer .= '"';
+                }
+            }
+            $a = 1;
+            $query_orderqty = mysqli_query($connect, $orderqty);
+            $jumlah_orderqty = mysqli_num_rows($query_orderqty);
+            $chart_orderqty = "";
+            while ($row1 = mysqli_fetch_array($query_orderqty)) {
+                if ($a < $jumlah_orderqty) {
+                    $chart_orderqty .= $row1['fscoq'];
+                    $chart_orderqty .= ',';
+                    $a++;
+                } else {
+                    $chart_orderqty .= $row1['fscoq'];
+                }
+            }
+
+
+            ?>
+            //-------------
+            //- BAR CHART -
+            //-------------
+            var barChartCanvas = $('#barChart2').get(0).getContext('2d')
+            //var barChartData = $.extend(true, {}, areaChartData)
+            var barChartData = {
+                labels: [<?php echo $chart_customer ?>],
+                datasets: [{
+                    label: 'Product',
+                    backgroundColor: 'rgba(60,141,188,0.9)',
+                    borderColor: 'rgba(60,141,188,0.8)',
+                    pointRadius: false,
+                    pointColor: '#3b8bba',
+                    pointStrokeColor: 'rgba(60,141,188,1)',
+                    pointHighlightFill: '#fff',
+                    pointHighlightStroke: 'rgba(60,141,188,1)',
+                    data: [<?php echo $chart_orderqty ?>]
+                }]
+            }
+
+            var barChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                datasetFill: false
+            }
+
+            new Chart(barChartCanvas, {
+                type: 'bar',
+                data: barChartData,
+                options: barChartOptions
+            })
+        })
+    </script>
+    <script>
+        $(function() {
+            <?php
+            include "config.php";
+            $customer = "SELECT p.product_name FROM `fact_sales` fs JOIN product p ON fs.product_id = p.product_id JOIN time t ON fs.time_id = t.time_id WHERE t.tahun=2004 GROUP BY p.product_id ORDER BY COUNT(p.product_name) DESC LIMIT 10;";
+            $orderqty = "SELECT COUNT(p.product_name) as fscoq FROM `fact_sales` fs JOIN product p ON fs.product_id = p.product_id JOIN time t ON fs.time_id = t.time_id WHERE t.tahun=2004 GROUP BY p.product_name ORDER BY fscoq DESC LIMIT 10;";
+            $i = 1;
+            $query_customer = mysqli_query($connect, $customer);
+            $jumlah_customer = mysqli_num_rows($query_customer);
+            $chart_customer = "";
+            while ($row = mysqli_fetch_array($query_customer)) {
+                if ($i < $jumlah_customer) {
+                    $chart_customer .= '"';
+                    $chart_customer .= $row['product_name'];
+                    $chart_customer .= '",';
+                    $i++;
+                } else {
+                    $chart_customer .= '"';
+                    $chart_customer .= $row['product_name'];
+                    $chart_customer .= '"';
+                }
+            }
+            $a = 1;
+            $query_orderqty = mysqli_query($connect, $orderqty);
+            $jumlah_orderqty = mysqli_num_rows($query_orderqty);
+            $chart_orderqty = "";
+            while ($row1 = mysqli_fetch_array($query_orderqty)) {
+                if ($a < $jumlah_orderqty) {
+                    $chart_orderqty .= $row1['fscoq'];
+                    $chart_orderqty .= ',';
+                    $a++;
+                } else {
+                    $chart_orderqty .= $row1['fscoq'];
+                }
+            }
+
+
+            ?>
+            //-------------
+            //- BAR CHART -
+            //-------------
+            var barChartCanvas = $('#barChart3').get(0).getContext('2d')
+            //var barChartData = $.extend(true, {}, areaChartData)
+            var barChartData = {
+                labels: [<?php echo $chart_customer ?>],
+                datasets: [{
+                    label: 'Product',
+                    backgroundColor: 'rgba(60,141,188,0.9)',
+                    borderColor: 'rgba(60,141,188,0.8)',
+                    pointRadius: false,
+                    pointColor: '#3b8bba',
+                    pointStrokeColor: 'rgba(60,141,188,1)',
+                    pointHighlightFill: '#fff',
+                    pointHighlightStroke: 'rgba(60,141,188,1)',
+                    data: [<?php echo $chart_orderqty ?>]
+                }]
+            }
+
+            var barChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                datasetFill: false
+            }
+
+            new Chart(barChartCanvas, {
+                type: 'bar',
+                data: barChartData,
+                options: barChartOptions
+            })
+        })
+    </script>
 </body>
 
 </html>

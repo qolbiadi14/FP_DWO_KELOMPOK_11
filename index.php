@@ -37,16 +37,6 @@
 
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
-                    </div>
-                </div>
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <?php include "sidebar.php" ?>
@@ -99,7 +89,7 @@
                                     <p>Total Pemasukan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fas fa-dollar-sign"></i>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +135,7 @@
                                     <p>Total Transaksi Penjualan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fas fa-cart-arrow-down"></i>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +158,7 @@
                                     <p>Total Transaksi Pembelian</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
+                                    <i class="fas fa-cart-plus"></i>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +181,7 @@
                                     <p>Unique Product</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-box"></i>
                                 </div>
                             </div>
                         </div>
@@ -214,7 +204,7 @@
                                     <p>Unique Customer</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="nav-icon fas fa-users"></i>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +227,7 @@
                                     <p>Unique Vendor</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-industry"></i>
                                 </div>
                             </div>
                         </div>
@@ -260,7 +250,7 @@
                                     <p>Total Employee</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-people-carry"></i>
                                 </div>
                             </div>
                         </div>
@@ -283,7 +273,7 @@
                                     <p>Total Sales Territory</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-globe"></i>
                                 </div>
                             </div>
                         </div>
@@ -312,11 +302,6 @@
                         <!-- ./col -->
                     </div>
                     <!-- /.row -->
-                    <!-- Main row -->
-                    <div class="row">
-                        <iframe name="mondrian" src="http://localhost:8081/mondrian/testpage.jsp?query=whsales" style="height: 500px; width:100%; border:none; align-content:center"> </iframe>
-                    </div>
-                    <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->

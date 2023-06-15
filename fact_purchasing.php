@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>AdminLTE 3 | Fact Purchasing</title>
 
     <?php include "header.php" ?>
 </head>
@@ -32,15 +32,6 @@
 
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
-                    </div>
-                </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -58,12 +49,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Fact Purchasing</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                <li class="breadcrumb-item active">Fact Purchasing</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -114,7 +105,7 @@
                                         ?>
                                     </h3>
 
-                                    <p>rata-rata Pengeluaran/th</p>
+                                    <p>Rata-rata Pengeluaran/th</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
@@ -194,7 +185,7 @@
                             <!-- AREA CHART -->
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">trend pengiriman tiap tahun</h3>
+                                    <h3 class="card-title">Trend pengeluaran per tahun</h3>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -214,7 +205,7 @@
                             <!-- AREA CHART -->
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">trend pengiriman per bulan</h3>
+                                    <h3 class="card-title">Trend pengeluaran per bulan</h3>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -227,9 +218,6 @@
                                         <canvas id="visitors-chart1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                                     </div>
                                     <div class="d-flex flex-row justify-content-end">
-                                        <span class="mr-3">
-                                            <i class="fas fa-square text-primary"></i> 2001
-                                        </span>
                                         <span class="mr-3">
                                             <i class="fas fa-square text-success"></i> 2002
                                         </span>

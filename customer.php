@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>AdminLTE 3 | Customer</title>
 
     <?php include "header.php" ?>
 </head>
@@ -30,192 +30,181 @@
             </a>
 
             <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <?php include "sidebar.php" ?>
+            </nav>
+            <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Customer</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                            <li class="breadcrumb-item active">Customer</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3>
+                                    <?php
+                                    include "config.php";
+                                    $sql = "SELECT AVG(line_total) as avg FROM fact_sales";
+                                    $query = mysqli_query($connect, $sql);
+                                    while ($row2 = mysqli_fetch_array($query)) {
+                                        echo "$" . number_format($row2['avg']);
+                                    }
+                                    ?>
+                                </h3>
+                                <p>Rata-Rata Beli</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>
+                                    <?php
+                                    include "config.php";
+                                    $sql = "SELECT COUNT(customer_id) as cid FROM `customer`";
+                                    $query = mysqli_query($connect, $sql);
+                                    while ($row2 = mysqli_fetch_array($query)) {
+                                        echo number_format($row2['cid']);
+                                    }
+                                    ?>
+                                </h3>
+
+                                <p>Unique Customer</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3>
+                                    <?php
+                                    include "config.php";
+                                    $sql = "SELECT COUNT(*) as jml_pnj FROM `fact_sales`";
+                                    $query = mysqli_query($connect, $sql);
+                                    while ($row2 = mysqli_fetch_array($query)) {
+                                        echo "$" . number_format($row2['jml_pnj']);
+                                    }
+                                    ?>
+                                </h3>
+
+                                <p>Total Transaksi Penjualan</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- /.row -->
+                <!-- /.row (main row) -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- BAR CHART -->
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <h3 class="card-title">10 customer dengan transaksi terbanyak</h3>
 
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <?php include "sidebar.php" ?>
-                </nav>
-                <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
-        </aside>
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <!-- Small boxes (Stat box) -->
-                    <div class="row">
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>
-                                        <?php
-                                        include "config.php";
-                                        $sql = "SELECT AVG(line_total) as avg FROM fact_sales";
-                                        $query = mysqli_query($connect, $sql);
-                                        while ($row2 = mysqli_fetch_array($query)) {
-                                            echo "$" . number_format($row2['avg']);
-                                        }
-                                        ?>
-                                    </h3>
-                                    <p>Rata-Rata Beli</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>
-                                        <?php
-                                        include "config.php";
-                                        $sql = "SELECT COUNT(customer_id) as cid FROM `customer`";
-                                        $query = mysqli_query($connect, $sql);
-                                        while ($row2 = mysqli_fetch_array($query)) {
-                                            echo number_format($row2['cid']);
-                                        }
-                                        ?>
-                                    </h3>
-
-                                    <p>Unique Customer</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                            <div class="card-body">
+                                <div class="chart">
+                                    <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                                 </div>
                             </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>
-                                        <?php
-                                        include "config.php";
-                                        $sql = "SELECT COUNT(*) as jml_pnj FROM `fact_sales`";
-                                        $query = mysqli_query($connect, $sql);
-                                        while ($row2 = mysqli_fetch_array($query)) {
-                                            echo "$" . number_format($row2['jml_pnj']);
-                                        }
-                                        ?>
-                                    </h3>
-
-                                    <p>Total Transaksi Penjualan</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
-                                </div>
-                            </div>
+                            <!-- /.card-body -->
                         </div>
                     </div>
-                    <!-- /.row -->
-                    <!-- /.row (main row) -->
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <!-- BAR CHART -->
-                            <div class="card card-success">
-                                <div class="card-header">
-                                    <h3 class="card-title">10 customer dengan transaksi terbanyak</h3>
+                    <div class="col-md-6">
+                        <!-- DONUT CHART -->
+                        <!-- BAR CHART -->
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <h3 class="card-title">10 customer dengan total belanja terbanyak</h3>
 
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
                                 </div>
-                                <div class="card-body">
-                                    <div class="chart">
-                                        <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                                    </div>
-                                </div>
-                                <!-- /.card-body -->
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <!-- DONUT CHART -->
-                            <!-- BAR CHART -->
-                            <div class="card card-success">
-                                <div class="card-header">
-                                    <h3 class="card-title">10 customer dengan total belanja terbanyak</h3>
-
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
+                            <div class="card-body">
+                                <div class="chart">
+                                    <canvas id="barChart1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                                 </div>
-                                <div class="card-body">
-                                    <div class="chart">
-                                        <canvas id="barChart1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                                    </div>
-                                </div>
-                                <!-- /.card-body -->
                             </div>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.col (RIGHT) -->
                     </div>
-            </section>
+                    <!-- /.col (RIGHT) -->
+                </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 3.2.0
         </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0
-            </div>
-        </footer>
+    </footer>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
 

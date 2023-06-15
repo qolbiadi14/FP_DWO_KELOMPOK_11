@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>AdminLTE 3 | Fact Sales</title>
 
     <?php include "header.php" ?>
 </head>
@@ -32,16 +32,6 @@
 
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
-                    </div>
-                </div>
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <?php include "sidebar.php" ?>
@@ -58,12 +48,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Fact Sales</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                <li class="breadcrumb-item active">Fact Sales</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -114,7 +104,7 @@
                                         ?>
                                     </h3>
 
-                                    <p>rata-rata pemasukan/th</p>
+                                    <p>Rata-rata pemasukan/th</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
@@ -194,7 +184,7 @@
                             <!-- AREA CHART -->
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">trend pengiriman tiap tahun</h3>
+                                    <h3 class="card-title">Trend pendapatan per tahun</h3>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -214,7 +204,7 @@
                             <!-- AREA CHART -->
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">trend pengiriman per bulan</h3>
+                                    <h3 class="card-title">Trend pendapatan per bulan</h3>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -384,6 +374,7 @@
             $amount1 = "SELECT SUM(sf.line_total) as amount FROM fact_sales sf JOIN time t ON sf.time_id = t.time_id WHERE t.tahun=2004 GROUP BY t.bulan";
             $amount2 = "SELECT SUM(sf.line_total) as amount FROM fact_sales sf JOIN time t ON sf.time_id = t.time_id WHERE t.tahun=2003 GROUP BY t.bulan";
             $amount3 = "SELECT SUM(sf.line_total) as amount FROM fact_sales sf JOIN time t ON sf.time_id = t.time_id WHERE t.tahun=2002 GROUP BY t.bulan";
+            $amount4 = "SELECT SUM(fs.line_total) AS amount FROM fact_sales fs JOIN time t ON fs.time_id = t.time_id WHERE t.tahun=2001 GROUP BY t.bulan";
             $i = 1;
             $query_bulan = mysqli_query($connect, $bulan);
             $jumlah_bulan = mysqli_num_rows($query_bulan);
@@ -440,6 +431,19 @@
                     $chart_amount3 .= $row3['amount'];
                 }
             }
+            $d = 1;
+            $query_amount4 = mysqli_query($connect, $amount4);
+            $jumlah_amount4 = mysqli_num_rows($query_amount4);
+            $chart_amount4 = "";
+            while ($row4 = mysqli_fetch_array($query_amount4)) {
+                if ($d < $jumlah_amount4) {
+                    $chart_amount4 .= $row4['amount'];
+                    $chart_amount4 .= ',';
+                    $d++;
+                } else {
+                    $chart_amount4 .= $row4['amount'];
+                }
+            }
             ?>
             var ticksStyle = {
                 fontColor: '#495057',
@@ -483,6 +487,17 @@
                             borderColor: '#28a745',
                             pointBorderColor: '#28a745',
                             pointBackgroundColor: '#28a745',
+                            fill: false
+                            // pointHoverBackgroundColor: '#ced4da',
+                            // pointHoverBorderColor    : '#ced4da'
+                        },
+                        {
+                            type: 'line',
+                            data: [<?php echo $chart_amount4; ?>],
+                            backgroundColor: 'tansparent',
+                            borderColor: '#007bff',
+                            pointBorderColor: '#007bff',
+                            pointBackgroundColor: '#007bff',
                             fill: false
                             // pointHoverBackgroundColor: '#ced4da',
                             // pointHoverBorderColor    : '#ced4da'
