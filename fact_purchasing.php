@@ -69,7 +69,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-success">
+                            <div class="small-box bg-danger">
                                 <div class="inner">
                                     <h3>
                                         <?php
@@ -85,14 +85,14 @@
                                     <p>Total Pengeluaran</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="ion ion-stats-bars"></i>
                                 </div>
                             </div>
                         </div>
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-success">
+                            <div class="small-box bg-danger">
                                 <div class="inner">
                                     <h3>
                                         <?php
@@ -115,12 +115,12 @@
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-success">
+                            <div class="small-box bg-danger">
                                 <div class="inner">
                                     <h3 style="display:inline-block">
                                         <?php
                                         include "config.php";
-                                        $sql = "SELECT t.tahun, AVG(f.line_total) AS rata_rata_line_total
+                                        $sql = "SELECT t.tahun, SUM(f.line_total) AS rata_rata_line_total
                                                 FROM fact_purchasing f
                                                 JOIN time t ON f.time_id = t.time_id
                                                 GROUP BY t.tahun ORDER BY rata_rata_line_total DESC LIMIT 1;";
@@ -133,7 +133,7 @@
                                     <h4 style="display:inline; float:right">
                                         <?php
                                         include "config.php";
-                                        $sql = "SELECT t.tahun, AVG(f.line_total) AS rata_rata_line_total
+                                        $sql = "SELECT t.tahun, SUM(f.line_total) AS rata_rata_line_total
                                                 FROM fact_purchasing f
                                                 JOIN time t ON f.time_id = t.time_id
                                                 GROUP BY t.tahun ORDER BY rata_rata_line_total DESC LIMIT 1;";
@@ -146,14 +146,14 @@
                                     <p>Pengeluaran Tertinggi</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fab fa-think-peaks"></i>
                                 </div>
                             </div>
                         </div>
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-success">
+                            <div class="small-box bg-danger">
                                 <div class="inner">
                                     <h3>
                                         <?php
@@ -169,7 +169,7 @@
                                     <p>Total Transaksi Pembelian</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
+                                    <i class="fas fa-cart-plus"></i>
                                 </div>
                             </div>
                         </div>

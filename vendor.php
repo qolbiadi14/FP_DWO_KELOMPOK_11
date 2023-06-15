@@ -85,7 +85,7 @@
                                     <p>Unique Vendor</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-industry"></i>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                                     <p>Total Transaksi Penjualan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fas fa-cart-arrow-down"></i>
                                 </div>
                             </div>
                         </div>

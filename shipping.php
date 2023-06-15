@@ -83,7 +83,7 @@
                                     <p>Total Transaksi Penjualan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fas fa-cart-arrow-down"></i>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                     <p>Total Transaksi Pembelian</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
+                                    <i class="fas fa-cart-plus"></i>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                                     <p>Total Ekspedisi</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-shipping-fast"></i>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +151,7 @@
                                     <p>Unique Vendor</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-industry"></i>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +177,7 @@
                                     <p>ekspedisi yang sering digunakan di penjualan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-shipping-fast"></i>
                                 </div>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                                     <p>ekspedisi yang sering digunakan di purchasing</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-shipping-fast"></i>
                                 </div>
                             </div>
                         </div>

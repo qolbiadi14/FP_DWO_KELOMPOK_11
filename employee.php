@@ -84,7 +84,7 @@
                                     <p>Total Employee</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-people-carry"></i>
                                 </div>
                             </div>
                         </div>

@@ -81,7 +81,7 @@
                                 <p>Rata-Rata Beli</p>
                             </div>
                             <div class="icon">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="fas fa-dollar-sign"></i>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                                 <p>Unique Customer</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-person-add"></i>
+                                <i class="fas fa-users"></i>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                                     $sql = "SELECT COUNT(*) as jml_pnj FROM `fact_sales`";
                                     $query = mysqli_query($connect, $sql);
                                     while ($row2 = mysqli_fetch_array($query)) {
-                                        echo "$" . number_format($row2['jml_pnj']);
+                                        echo number_format($row2['jml_pnj']);
                                     }
                                     ?>
                                 </h3>
@@ -127,7 +127,7 @@
                                 <p>Total Transaksi Penjualan</p>
                             </div>
                             <div class="icon">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="fas fa-cart-arrow-down"></i>
                             </div>
                         </div>
                     </div>

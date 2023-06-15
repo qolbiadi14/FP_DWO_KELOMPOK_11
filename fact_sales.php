@@ -84,7 +84,7 @@
                                     <p>Total Pemasukan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fas fa-dollar-sign"></i>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                                     <h3 style="display:inline-block">
                                         <?php
                                         include "config.php";
-                                        $sql = "SELECT t.tahun, AVG(f.line_total) AS rata_rata_line_total
+                                        $sql = "SELECT t.tahun, SUM(f.line_total) AS rata_rata_line_total
                                                 FROM fact_sales f
                                                 JOIN time t ON f.time_id = t.time_id
                                                 GROUP BY t.tahun ORDER BY rata_rata_line_total DESC LIMIT 1;";
@@ -132,7 +132,7 @@
                                     <h4 style="display:inline; float:right">
                                         <?php
                                         include "config.php";
-                                        $sql = "SELECT t.tahun, AVG(f.line_total) AS rata_rata_line_total
+                                        $sql = "SELECT t.tahun, SUM(f.line_total) AS rata_rata_line_total
                                                 FROM fact_sales f
                                                 JOIN time t ON f.time_id = t.time_id
                                                 GROUP BY t.tahun ORDER BY rata_rata_line_total DESC LIMIT 1;";
@@ -145,7 +145,7 @@
                                     <p>Pemasukan Tertinggi</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fab fa-think-peaks"></i>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                                     <p>Total Transaksi Penjualan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
+                                    <i class="fas fa-cart-arrow-down"></i>
                                 </div>
                             </div>
                         </div>

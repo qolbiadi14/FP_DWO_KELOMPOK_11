@@ -134,7 +134,7 @@
                                     <p>Jumlah Product</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-box"></i>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                                     <p>Jumlah Kategori Produk</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-boxes"></i>
                                 </div>
                             </div>
                         </div>
@@ -179,7 +179,7 @@
                                     <p>Jumlah Sub Kategori Produk</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-boxes"></i>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
                                     <p>Produk Paling Banyak terjual</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-box-open"></i>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +231,7 @@
                                     <p>Produk Paling Banyak Purchasing</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-box-open"></i>
                                 </div>
                             </div>
                         </div>

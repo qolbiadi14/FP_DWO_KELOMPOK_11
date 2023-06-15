@@ -82,7 +82,7 @@
                                 <p>Total Pemasukan</p>
                             </div>
                             <div class="icon">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="fas fa-dollar-sign"></i>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                 <p>Total Transaksi Penjualan</p>
                             </div>
                             <div class="icon">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="fas fa-cart-arrow-down"></i>
                             </div>
                         </div>
                     </div>
