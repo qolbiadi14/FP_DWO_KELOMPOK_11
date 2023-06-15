@@ -1,7 +1,7 @@
 <?php
 $dbHost = "localhost";
-$dbUser = "x230";
-$dbPass = "x230";
+$dbUser = "root";
+$dbPass = "";
 $dbName = "dwadv_k11c";
 
 $connect = mysqli_connect($dbHost,$dbUser,$dbPass,$dbName);
